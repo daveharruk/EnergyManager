@@ -1,0 +1,24 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<h1>Upload meter readings</h1>
+<br/>
+
+<form method="post" enctype="multipart/form-data">
+    <input type="file" asp-for="Upload"/>
+    <input type="submit" />
+</form>
+
+
+@if (Model.ReadingResponse != null)
+{
+    <br/>
+    <h3>Number of invalid records: </h3>
+    @Model.ReadingResponse?.numberOfInvalidRecords;
+    <br/>
+    <h3>Number of valid records: </h3>
+    @Model.ReadingResponse?.numberOfValidRecords
+}
